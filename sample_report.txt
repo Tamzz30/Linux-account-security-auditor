@@ -1,0 +1,34 @@
+Linux Account Security Auditor
+================================
+Generated: 2026-11-10T06:30:00+00:00
+Host: lab-linux
+Accounts scanned: 24
+
+SUMMARY
+CRITICAL: 1
+HIGH: 1
+MEDIUM: 3
+LOW: 0
+
+FINDINGS
+1. [CRITICAL] EXTRA_UID_ZERO
+   Non-root account 'legacyadmin' has UID 0.
+   Recommendation: Verify whether this is intentional; normally only root should have UID 0.
+
+2. [HIGH] PAM_PWQUALITY_NOT_ENABLED
+   pam_pwquality.so was not found in the common PAM password configuration files checked.
+   Recommendation: Check your distribution's PAM stack and enable the password-quality module if appropriate.
+
+3. [MEDIUM] PASSWORD_MIN_LENGTH_WEAK
+   pwquality minlen is missing or below 12 (current: 8).
+   Recommendation: Consider a minimum length of at least 12, aligned with your policy.
+
+4. [MEDIUM] PASSWORD_NEVER_EXPIRES
+   Account 'student' has maximum password age set to 99999 days.
+   Recommendation: Set an appropriate maximum password age based on your organization's policy.
+
+5. [MEDIUM] SERVICE_ACCOUNT_INTERACTIVE
+   System/service account 'backupsvc' has interactive shell '/bin/bash'.
+   Recommendation: If interactive login is not required, assign /usr/sbin/nologin or /sbin/nologin.
+
+Read-only sample output for demonstration; not generated from a real system.
